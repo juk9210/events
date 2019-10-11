@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Describe the controller for the entity event that will handle REST requests.
@@ -32,7 +33,8 @@ public class EventRestController {
      */
     @GetMapping("{id}")
     public ResponseEntity<Event> getEvent(@PathVariable Long id) {
-        log.info( "Get event by id - " + id );
+        Optional<Event> event = eventRepository.findById( id );
+        log.info( "Get event by id " + id + " : " + event.toString() );
         return new ResponseEntity<>( eventRepository.findById( id ).orElse( null ), HttpStatus.OK );
     }
 

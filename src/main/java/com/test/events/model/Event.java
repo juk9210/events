@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 public class Event implements Serializable {
-    /*
+    /**
     Create class fields, which in the future will be columns in the table.
     */
     @Id

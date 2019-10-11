@@ -1,9 +1,11 @@
 package com.test.events.repository;
 
 import com.test.events.model.Event;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,4 +23,6 @@ public interface EventRepository extends CrudRepository<Event, Long> {
      * @return
      */
     List<Event> findEventsByEventType(String eventType);
+
+    List<Event> findEventsByDate(LocalDate date);
 }
